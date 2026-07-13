@@ -103,12 +103,14 @@ function Index() {
             ⟨ JASA JOKI MLBB ⟩
           </p>
           <h1 className="font-display text-4xl font-black leading-tight sm:text-6xl">
-            <span className="text-glow-cyan animate-flicker">NAIK RANK</span>
+            <span className="text-glow-cyan animate-flicker">RISQQ</span>
             <br />
-            <span className="text-glow-magenta">TANPA RIBET</span>
+            <span className="text-glow-magenta">STORE</span>
           </h1>
           <p className="mt-6 max-w-xl text-lg font-medium text-muted-foreground">
-            Joki rank Mobile Legends semua tier — Warrior sampai Glory. Pure gameplay, no cheat, proses cepat & aman.
+            Joki rank Mobile Legends semua tier — Warrior sampai Glory.
+            <br />
+            Pure gameplay, no cheat, proses cepat & aman.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <a href="#order" className="clip-corner inline-block bg-primary px-8 py-4 font-display text-sm font-bold tracking-widest text-primary-foreground transition-transform box-glow-cyan hover:scale-105">
