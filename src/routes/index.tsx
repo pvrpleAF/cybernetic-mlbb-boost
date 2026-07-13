@@ -171,7 +171,25 @@ function Index() {
             </div>
           </div>
         </div>
+
+        {/* PAYMENT METHODS */}
+        <div className="mt-10">
+          <h3 className="text-center font-display text-sm font-bold tracking-[0.35em] text-muted-foreground">
+            ⟨ METODE PEMBAYARAN ⟩
+          </h3>
+          <div className="mt-5 flex flex-wrap justify-center gap-3">
+            {paymentMethods.map((m) => (
+              <span
+                key={m}
+                className="clip-corner border border-primary/50 bg-card px-5 py-2 font-display text-sm font-bold tracking-widest text-glow-cyan"
+              >
+                {m}
+              </span>
+            ))}
+          </div>
+        </div>
       </section>
+
 
       {/* ORDER FORM */}
       <section id="order" className="border-y border-border bg-card/40 bg-grid-cyber py-20">
