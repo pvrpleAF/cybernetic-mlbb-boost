@@ -77,18 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Joki MLBB Cyberpunk — Jasa Joki Rank Mobile Legends" },
+      { title: "Risqq Store — Jasa Joki & Mabar VIP Mobile Legends" },
       {
         name: "description",
         content:
-          "Jasa joki rank MLBB terpercaya. Semua tier Warrior–Glory, pure gameplay no cheat, harga mulai 2K per match. Order cepat & aman.",
+          "Risqq Store: jasa joki rank & mabar VIP MLBB terpercaya. Semua tier Warrior–Glory, pure gameplay no cheat, harga mulai 2K/match. DANA · OVO · GOPAY · QRIS.",
       },
-      { name: "author", content: "Joki MLBB" },
-      { property: "og:title", content: "Joki MLBB Cyberpunk — Jasa Joki Rank Mobile Legends" },
+      { name: "author", content: "Risqq Store" },
+      { property: "og:title", content: "Risqq Store — Jasa Joki & Mabar VIP MLBB" },
       {
         property: "og:description",
         content:
-          "Jasa joki rank MLBB terpercaya. Semua tier, pure gameplay no cheat, harga mulai 2K per match.",
+          "Jasa joki & mabar VIP Mobile Legends. Semua tier, pure no cheat, proses cepat. Bayar DANA/OVO/GOPAY/QRIS.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
