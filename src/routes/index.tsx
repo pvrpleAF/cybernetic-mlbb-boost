@@ -39,11 +39,12 @@ const orderSteps = [
 ];
 
 const notes = [
-  "Avail mainin akun / mabar — harga sama",
+  "Mainin akun / mabar — harga sama",
   "Nerima semua tier: Warrior sampai Glory, harga sama",
   "Immortal wajib Fast Track (7K per match), bawa 1–2 worker tergantung tier",
   "VIP mainin akun: transfer → send email saja, login lewat verifikasi",
   "Pure mainin — 100% NO CHEAT",
+  "NO REFUND — order yang sudah diproses tidak bisa dikembalikan",
 ];
 
 function formatRupiah(n: number) {
