@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "sdk_version": "0.20.1",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "risqq-store-mcp",
+      "version": "0.1.0",
+      "title": "Risqq Store MCP"
+    },
+    "tools": [
+      {
+        "name": "get_pricelist",
+        "title": "Get price list",
+        "description": "Return Risqq Store MLBB joki price list (in IDR). All tiers Warrior-Glory same price; Immortal must Fast Track.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_store_info",
+        "title": "Get store info",
+        "description": "Return Risqq Store public info: WhatsApp, categories, payment methods, notes, and order flow.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "create_order_link",
+        "title": "Create WhatsApp order link",
+        "description": "Build a prefilled WhatsApp order link for Risqq Store MLBB joki. Returns a wa.me URL that opens WhatsApp with the order message.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "package_id": {
+              "type": "string",
+              "enum": [
+                "1m",
+                "3m",
+                "5m",
+                "7m",
+                "10m",
+                "ft"
+              ],
+              "description": "Package id: 1m, 3m, 5m, 7m, 10m, or ft (fast track immortal, per match)."
+            },
+            "category": {
+              "type": "string",
+              "enum": [
+                "JOKI",
+                "MABAR VIP"
+              ],
+              "description": "Order category."
+            },
+            "buyer_id": {
+              "type": "string",
+              "minLength": 1,
+              "description": "MLBB account ID (e.g. '123456789 (1234)'), or email for VIP mainin akun."
+            },
+            "payment": {
+              "type": "string",
+              "enum": [
+                "DANA",
+                "OVO",
+                "GOPAY",
+                "QRIS"
+              ],
+              "description": "Payment method."
+            },
+            "qty": {
+              "description": "Number of matches — only used when package_id is 'ft' (fast track). Defaults to 1.",
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          "required": [
+            "package_id",
+            "category",
+            "buyer_id",
+            "payment"
+          ]
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
