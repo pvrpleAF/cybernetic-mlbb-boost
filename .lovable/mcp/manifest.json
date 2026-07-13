@@ -72,7 +72,7 @@
             "category": {
               "type": "string",
               "enum": [
-                "JOKI",
+                "MAININ AKUN VIP",
                 "MABAR VIP"
               ],
               "description": "Order category."
