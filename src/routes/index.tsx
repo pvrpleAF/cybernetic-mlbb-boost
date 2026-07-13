@@ -334,6 +334,10 @@ function Index() {
                   {categories.find((c) => c.id === category)?.label}
                 </span>
               </div>
+              <div className="mt-2 flex items-center justify-between text-sm">
+                <span className="text-muted-foreground">Pembayaran</span>
+                <span className="font-semibold">{payment}</span>
+              </div>
               <div className="mt-3 flex items-center justify-between border-t border-border pt-3">
                 <span className="font-display text-sm tracking-widest text-muted-foreground">
                   TOTAL
