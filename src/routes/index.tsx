@@ -27,9 +27,10 @@ const priceList: Pkg[] = [
 
 const categories = [
   { id: "joki", label: "JOKI" },
-  { id: "mabar", label: "MABAR" },
-  { id: "vip", label: "VIP (mainin akun)" },
+  { id: "mabar", label: "MABAR VIP" },
 ] as const;
+
+const paymentMethods = ["DANA", "OVO", "GOPAY", "QRIS"];
 
 const orderSteps = [
   { step: "01", title: "PILIH & ORDER", desc: "Pilih paket + kategori, isi ID, klik ORDER via WhatsApp." },
