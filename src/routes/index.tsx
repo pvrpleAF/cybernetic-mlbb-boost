@@ -419,7 +419,7 @@ function Index() {
       </section>
 
       <footer className="border-t border-border py-8 text-center text-xs tracking-widest text-muted-foreground">
-        © 2026 JOKI MLBB — TRUSTED · FAST · SAFE · WA +62 878-7269-4771
+        © 2026 RISQQ STORE — TRUSTED · FAST · SAFE · WA +62 878-7269-4771
       </footer>
     </div>
   );
