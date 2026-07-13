@@ -278,9 +278,33 @@ function Index() {
               })}
             </div>
 
+            {/* Payment */}
+            <label className="mt-6 block font-display text-xs font-bold tracking-widest text-primary">
+              3. METODE PEMBAYARAN
+            </label>
+            <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
+              {paymentMethods.map((m) => {
+                const active = payment === m;
+                return (
+                  <button
+                    key={m}
+                    type="button"
+                    onClick={() => setPayment(m)}
+                    className={`clip-corner border px-4 py-3 font-display text-sm font-bold tracking-widest transition-all ${
+                      active
+                        ? "border-primary bg-primary/10 text-glow-cyan box-glow-cyan"
+                        : "border-border hover:border-primary/60"
+                    }`}
+                  >
+                    {m}
+                  </button>
+                );
+              })}
+            </div>
+
             {/* ID */}
             <label className="mt-6 block font-display text-xs font-bold tracking-widest text-primary">
-              3. ID AKUN MLBB
+              4. ID AKUN MLBB
             </label>
             <input
               type="text"
