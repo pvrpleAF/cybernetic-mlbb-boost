@@ -56,6 +56,7 @@ function Index() {
   const [category, setCategory] = useState<string>("joki");
   const [buyerId, setBuyerId] = useState<string>("");
   const [qty, setQty] = useState<number>(1);
+  const [payment, setPayment] = useState<string>("DANA");
 
   const selectedPkg = useMemo(
     () => priceList.find((p) => p.id === pkgId) ?? priceList[0],
