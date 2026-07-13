@@ -84,14 +84,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Risqq Store: jasa joki rank & mabar VIP MLBB terpercaya. Semua tier Warrior–Glory, pure gameplay no cheat, harga mulai 2K/match. DANA · OVO · GOPAY · QRIS.",
       },
       { name: "author", content: "Risqq Store" },
-      { property: "og:title", content: "Risqq Store — Jasa Joki & Mabar VIP MLBB" },
+      { property: "og:title", content: "Risqq Store — Jasa Joki & Mabar VIP Mobile Legends" },
       {
         property: "og:description",
         content:
-          "Jasa joki & mabar VIP Mobile Legends. Semua tier, pure no cheat, proses cepat. Bayar DANA/OVO/GOPAY/QRIS.",
+          "Risqq Store: jasa joki rank & mabar VIP MLBB terpercaya. Semua tier Warrior–Glory, pure gameplay no cheat, harga mulai 2K/match. DANA · OVO · GOPAY · QRIS.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Risqq Store — Jasa Joki & Mabar VIP Mobile Legends" },
+      { name: "twitter:description", content: "Risqq Store: jasa joki rank & mabar VIP MLBB terpercaya. Semua tier Warrior–Glory, pure gameplay no cheat, harga mulai 2K/match. DANA · OVO · GOPAY · QRIS." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/80adb9c2-7fda-4ab4-b22c-8c7f0913ed3a/id-preview-90238ec0--1d145c6a-06fc-474e-b25d-89fdc9a33a65.lovable.app-1783909712462.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/80adb9c2-7fda-4ab4-b22c-8c7f0913ed3a/id-preview-90238ec0--1d145c6a-06fc-474e-b25d-89fdc9a33a65.lovable.app-1783909712462.png" },
     ],
     links: [
       {
