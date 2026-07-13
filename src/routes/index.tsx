@@ -27,9 +27,10 @@ const priceList: Pkg[] = [
 
 const categories = [
   { id: "joki", label: "JOKI" },
-  { id: "mabar", label: "MABAR" },
-  { id: "vip", label: "VIP (mainin akun)" },
+  { id: "mabar", label: "MABAR VIP" },
 ] as const;
+
+const paymentMethods = ["DANA", "OVO", "GOPAY", "QRIS"];
 
 const orderSteps = [
   { step: "01", title: "PILIH & ORDER", desc: "Pilih paket + kategori, isi ID, klik ORDER via WhatsApp." },
@@ -38,11 +39,12 @@ const orderSteps = [
 ];
 
 const notes = [
-  "Avail mainin akun / mabar — harga sama",
+  "Mainin akun / mabar — harga sama",
   "Nerima semua tier: Warrior sampai Glory, harga sama",
   "Immortal wajib Fast Track (7K per match), bawa 1–2 worker tergantung tier",
   "VIP mainin akun: transfer → send email saja, login lewat verifikasi",
   "Pure mainin — 100% NO CHEAT",
+  "NO REFUND — order yang sudah diproses tidak bisa dikembalikan",
 ];
 
 function formatRupiah(n: number) {
@@ -54,6 +56,7 @@ function Index() {
   const [category, setCategory] = useState<string>("joki");
   const [buyerId, setBuyerId] = useState<string>("");
   const [qty, setQty] = useState<number>(1);
+  const [payment, setPayment] = useState<string>("DANA");
 
   const selectedPkg = useMemo(
     () => priceList.find((p) => p.id === pkgId) ?? priceList[0],
@@ -74,11 +77,12 @@ function Index() {
       `• Paket: ${paketLabel}\n` +
       `• Kategori: ${catLabel}\n` +
       `• ID: ${buyerId || "(belum diisi)"}\n` +
+      `• Pembayaran: ${payment}\n` +
       `----------------------------------\n` +
       `• Total Biaya: ${formatRupiah(total)}\n\n` +
       `_Halo Admin, saya sudah mengisi form order di website. Mohon instruksi kirim data login/konfirmasi add pertemuannya._`;
     return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
-  }, [selectedPkg, category, buyerId, qty, isFastTrack, total]);
+  }, [selectedPkg, category, buyerId, qty, isFastTrack, total, payment]);
 
   const canOrder = buyerId.trim().length > 0;
 
@@ -101,12 +105,14 @@ function Index() {
             ⟨ JASA JOKI MLBB ⟩
           </p>
           <h1 className="font-display text-4xl font-black leading-tight sm:text-6xl">
-            <span className="text-glow-cyan animate-flicker">NAIK RANK</span>
+            <span className="text-glow-cyan animate-flicker">RISQQ</span>
             <br />
-            <span className="text-glow-magenta">TANPA RIBET</span>
+            <span className="text-glow-magenta">STORE</span>
           </h1>
           <p className="mt-6 max-w-xl text-lg font-medium text-muted-foreground">
-            Joki rank Mobile Legends semua tier — Warrior sampai Glory. Pure gameplay, no cheat, proses cepat & aman.
+            Joki rank Mobile Legends semua tier — Warrior sampai Glory.
+            <br />
+            Pure gameplay, no cheat, proses cepat & aman.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <a href="#order" className="clip-corner inline-block bg-primary px-8 py-4 font-display text-sm font-bold tracking-widest text-primary-foreground transition-transform box-glow-cyan hover:scale-105">
@@ -167,7 +173,25 @@ function Index() {
             </div>
           </div>
         </div>
+
+        {/* PAYMENT METHODS */}
+        <div className="mt-10">
+          <h3 className="text-center font-display text-sm font-bold tracking-[0.35em] text-muted-foreground">
+            ⟨ METODE PEMBAYARAN ⟩
+          </h3>
+          <div className="mt-5 flex flex-wrap justify-center gap-3">
+            {paymentMethods.map((m) => (
+              <span
+                key={m}
+                className="clip-corner border border-primary/50 bg-card px-5 py-2 font-display text-sm font-bold tracking-widest text-glow-cyan"
+              >
+                {m}
+              </span>
+            ))}
+          </div>
+        </div>
       </section>
+
 
       {/* ORDER FORM */}
       <section id="order" className="border-y border-border bg-card/40 bg-grid-cyber py-20">
@@ -256,9 +280,33 @@ function Index() {
               })}
             </div>
 
+            {/* Payment */}
+            <label className="mt-6 block font-display text-xs font-bold tracking-widest text-primary">
+              3. METODE PEMBAYARAN
+            </label>
+            <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
+              {paymentMethods.map((m) => {
+                const active = payment === m;
+                return (
+                  <button
+                    key={m}
+                    type="button"
+                    onClick={() => setPayment(m)}
+                    className={`clip-corner border px-4 py-3 font-display text-sm font-bold tracking-widest transition-all ${
+                      active
+                        ? "border-primary bg-primary/10 text-glow-cyan box-glow-cyan"
+                        : "border-border hover:border-primary/60"
+                    }`}
+                  >
+                    {m}
+                  </button>
+                );
+              })}
+            </div>
+
             {/* ID */}
             <label className="mt-6 block font-display text-xs font-bold tracking-widest text-primary">
-              3. ID AKUN MLBB
+              4. ID AKUN MLBB
             </label>
             <input
               type="text"
@@ -285,6 +333,10 @@ function Index() {
                 <span className="font-semibold uppercase">
                   {categories.find((c) => c.id === category)?.label}
                 </span>
+              </div>
+              <div className="mt-2 flex items-center justify-between text-sm">
+                <span className="text-muted-foreground">Pembayaran</span>
+                <span className="font-semibold">{payment}</span>
               </div>
               <div className="mt-3 flex items-center justify-between border-t border-border pt-3">
                 <span className="font-display text-sm tracking-widest text-muted-foreground">
@@ -367,7 +419,7 @@ function Index() {
       </section>
 
       <footer className="border-t border-border py-8 text-center text-xs tracking-widest text-muted-foreground">
-        © 2026 JOKI MLBB — TRUSTED · FAST · SAFE · WA +62 878-7269-4771
+        © 2026 RISQQ STORE — TRUSTED · FAST · SAFE · WA +62 878-7269-4771
       </footer>
     </div>
   );
