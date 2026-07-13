@@ -77,11 +77,12 @@ function Index() {
       `• Paket: ${paketLabel}\n` +
       `• Kategori: ${catLabel}\n` +
       `• ID: ${buyerId || "(belum diisi)"}\n` +
+      `• Pembayaran: ${payment}\n` +
       `----------------------------------\n` +
       `• Total Biaya: ${formatRupiah(total)}\n\n` +
       `_Halo Admin, saya sudah mengisi form order di website. Mohon instruksi kirim data login/konfirmasi add pertemuannya._`;
     return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
-  }, [selectedPkg, category, buyerId, qty, isFastTrack, total]);
+  }, [selectedPkg, category, buyerId, qty, isFastTrack, total, payment]);
 
   const canOrder = buyerId.trim().length > 0;
 
